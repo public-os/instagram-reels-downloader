@@ -1,0 +1,67 @@
+body {
+    background-image: url('warrior.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 18px;   /* Desktop font */
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Navbar */
+.navbar {
+    background: #fffafa;
+    padding: 10px 20px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.navbar a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* =========================
+   TABLET
+   ========================= */
+
+@media (max-width: 768px) {
+    body {
+        font-size: 22px;   /* Tablet font bigger */
+    }
+
+    .navbar a {
+        font-size: 20px;
+    }
+}
+
+/* =========================
+   MOBILE (PHONE)
+   ========================= */
+
+@media (max-width: 480px) {
+    body {
+        font-size: 40px;   /* 📱 Phone font MUCH bigger */
+        text-align: center;
+    }
+
+    .navbar {
+        flex-direction: column;
+        gap: 12px;
+        font-size: 100px;
+    }
+
+    .navbar a {
+        font-size: 50rem;
+    }
+}
+
+
+body {
+    transition: background-image 1s ease-in-out;
+}

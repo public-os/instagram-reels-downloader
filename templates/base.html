@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Instagram Downloader</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{{ url_for('home') }}">Home</a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('instagram_downloader') }}">Instagram Downloader</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('profile') }}">Profile</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('history') }}">History</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container mt-4">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+</div>
+
+<!-- --- Background Slideshow Script --- -->
+<script>
+    const images = [
+       "/static/hellcat.jpg",
+       "/static/hellcat.jpg",
+       "/static/hellcat2.jpg",
+       "/static/hellcat1.jpg",
+        "/static/hellcat1.jpg"
+    ];
+    
+    let current = 0;
+    const body = document.body;
+
+    function changeBackground() {
+        body.style.backgroundImage = `url('${images[current]}')`;
+        body.style.backgroundSize = "cover";
+        body.style.backgroundPosition = "center";
+        body.style.backgroundRepeat = "no-repeat";
+        current = (current + 1) % images.length;
+    }
+
+    changeBackground(); // Initial background
+    setInterval(changeBackground, 5000); // Change every 5 seconds
+</script>
+
+</body>
+</html>

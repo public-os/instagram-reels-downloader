@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Instagram Downloader</h2>
+<form method="POST">
+  <div class="mb-3">
+    <label for="url" class="form-label">Instagram URL</label>
+    <input type="text" class="form-control" id="url" name="url" placeholder="Paste Instagram reel URL">
+  </div>
+  <button type="submit" class="btn btn-success">Download</button>
+</form>
+{% endblock %}

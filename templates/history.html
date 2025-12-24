@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Download History</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>File Name</th>
+            <th>Size (MB)</th>
+            <th>Created</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for f in files %}
+        <tr>
+            <td>{{ f.name }}</td>
+            <td>{{ "%.2f"|format(f.size_mb) }}</td>
+            <td>{{ f.created }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
